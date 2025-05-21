@@ -17,26 +17,29 @@ from livekit.agents.pipeline import VoicePipelineAgent
 from livekit.plugins import cartesia, openai, deepgram, silero, turn_detector
 from livekit.plugins import google
 
-# from livekit.agents.multimodal import MultimodalAgent
+#from livekit.agents.multimodal import MultimodalAgent
 from livekit.plugins import openai
 from livekit.plugins import elevenlabs
 import time
 from typing import AsyncIterable, Union
 import os
-from llama_index.core import (
-    SimpleDirectoryReader,
-    StorageContext,
-    VectorStoreIndex,
-    load_index_from_storage,
-    Document
-)
-from llama_index.core.schema import MetadataMode
-import json
+# from llama_index.core import (
+#     SimpleDirectoryReader,
+#     StorageContext,
+#     VectorStoreIndex,
+#     load_index_from_storage,
+#     Document
+# )
+# from llama_index.core.schema import MetadataMode
+# import json
 from livekit import api 
-from llama_index.core.text_splitter import TokenTextSplitter
+# from llama_index.core.text_splitter import TokenTextSplitter
 from silence import SilenceDisconnector
 from datetime import datetime , timezone
 from info import get_prompt
+
+
+#Loading Dotenv
 
 load_dotenv(dotenv_path=".env.local",verbose=True)
 
@@ -83,8 +86,8 @@ google_tts=google.TTS(
 eleven_tts=elevenlabs.tts.TTS(
     model="eleven_flash_v2_5",
     voice=elevenlabs.tts.Voice(
-        id="9BWtsMINqrJLrRacOk9x",
-        name="Aria",
+        id="N2lVS1w4EtoT3dr4eOWO",
+        name="Callum",
         category="premade",
         settings=elevenlabs.tts.VoiceSettings(
             stability=0.8,
@@ -371,7 +374,7 @@ async def entrypoint(ctx: JobContext):
     agent.start(ctx.room, participant)
 
     # The agent should be polite and greet the user when it joins :)
-    await agent.say("नमस्ते! मैं Holiday Tribe से Kunal बोल रहा हूँ। मैं आपकी Holiday Planning में कैसे मदद कर सकता हूँ?", allow_interruptions=True)
+    await agent.say("नमस्ते! मैं Testing Bot hu Mera naam Alpha Hai । मैं आपकी कैसे मदद कर सकता हूँ?", allow_interruptions=True)
     
 
 if __name__ == "__main__":
