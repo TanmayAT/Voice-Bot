@@ -12,13 +12,13 @@ from livekit.agents import (
     metrics,
 )
 import random
+
 from livekit.agents.pipeline import VoicePipelineAgent
 from livekit.plugins import cartesia, openai, deepgram, silero, turn_detector
 from livekit.plugins import google
 
-from livekit.agents.multimodal import MultimodalAgent
+# from livekit.agents.multimodal import MultimodalAgent
 from livekit.plugins import openai
-
 from livekit.plugins import elevenlabs
 import time
 from typing import AsyncIterable, Union
@@ -38,7 +38,8 @@ from silence import SilenceDisconnector
 from datetime import datetime , timezone
 from info import get_prompt
 
-load_dotenv(dotenv_path=".env.local")
+load_dotenv(dotenv_path=".env.local",verbose=True)
+
 
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 
@@ -82,8 +83,8 @@ google_tts=google.TTS(
 eleven_tts=elevenlabs.tts.TTS(
     model="eleven_flash_v2_5",
     voice=elevenlabs.tts.Voice(
-        id="eyVoIoi3vo6sJoHOKgAc",
-        name="Raju",
+        id="9BWtsMINqrJLrRacOk9x",
+        name="Aria",
         category="premade",
         settings=elevenlabs.tts.VoiceSettings(
             stability=0.8,
